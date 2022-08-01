@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>闭包</title>
+      <link href="/1970/01/01/%E9%97%AD%E5%8C%85/"/>
+      <url>/1970/01/01/%E9%97%AD%E5%8C%85/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    </span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    //闭包：函数嵌套函数，内部函数就是闭包</span><br><span class="line">    function outerFun()&#123;</span><br><span class="line">        let a=10</span><br><span class="line">        function innerFun()&#123;</span><br><span class="line">            console.log(a)</span><br><span class="line">        &#125;</span><br><span class="line">        return innerFun</span><br><span class="line">    &#125;</span><br><span class="line">    let fun=outerFun()</span><br><span class="line">    fun()</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Data URL</title>
+      <link href="/1970/01/01/Data%20URL/"/>
+      <url>/1970/01/01/Data%20URL/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/liuliuliuliumin123/article/details/107774725">Data URL 基本介绍_黑山老妖橙的博客-CSDN博客_dataurl</a></p><p> <a href="http://en.wikipedia.org/wiki/Data_URL">Data URL</a>给了我们一种很巧妙的将图片“嵌入”到HTML中的方法。跟传统的用img标记将服务器上的图片引用到页面中的方式不一样，在Data URL协议中，图片被转换成<a href="http://en.wikipedia.org/wiki/Base64">base64</a>编码的字符串形式，并存储在URL中，冠以mime-type。</p><p> 使用 Data URL 也有一些缺点：</p><ul><li>base64 编码后的图片会比原来的体积大三分之一左右。</li><li>Data URL 形式的图片不会缓存下来，每次访问页面都要被下载一次。可以将 Data URL 写入到 CSS 文件中随着 CSS 被缓存下来。</li></ul><p>假设我们的页面里有一个很小的div元素，我们想用一种灰色的斜纹图案做它的背景，这种背景在当今的网站设计者中非常流行。传统的方法是制作一个3×3像素的图片，保存成GIF或PNG格式，然后在CSS的background-image属性中引用它的地址。而Data URL则是一种更高效的替代方法，就像下面这样。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//css</span><br><span class="line">.striped_box &#123;</span><br><span class="line">width: 100px;</span><br><span class="line"></span><br><span class="line">height: 100px;</span><br><span class="line"></span><br><span class="line">background-image: url(&quot;data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BAAAAAAALAAAAAADAAMAAAIEBHIJBQA7&quot;);</span><br><span class="line"></span><br><span class="line">border: 1px solid gray;</span><br><span class="line"></span><br><span class="line">padding: 10px;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">//html</span><br><span class="line">&lt;div class=&quot;striped_box lazy &quot;&gt;  </span><br><span class="line"></span><br><span class="line">这是一个有条纹的方块  </span><br><span class="line"></span><br><span class="line">&lt;/div&gt;  </span><br></pre></td></tr></table></figure><h5 id="将图片转换成Data-URL格式的方法"><a href="#将图片转换成Data-URL格式的方法" class="headerlink" title="将图片转换成Data URL格式的方法"></a>将图片转换成Data URL格式的方法</h5><p>用Data URL来展示图片的例子以及它的好处我们说完了，下面我们转入下一个问题，如何将图片转换成Base64编码的字符串。其实网上有很多工具都可以使用，下面列举了几个。其中一个是在线工具，一个Mac OS X桌面应用。</p><ul><li><a href="http://dataurl.net/#dataurlmaker">DataURLMaker在线工具</a></li><li><a href="https://github.com/sveinbjornt/Data-URL-Toolkit">DataURLMaker Mac OS X 桌面</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>css</title>
+      <link href="/1970/01/01/css/"/>
+      <url>/1970/01/01/css/</url>
+      
+        <content type="html"><![CDATA[<h3 id="设置一行超出显示省略号"><a href="#设置一行超出显示省略号" class="headerlink" title="设置一行超出显示省略号"></a>设置一行超出显示省略号</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">overflow: hidden;</span><br><span class="line">text-overflow: ellipsis;</span><br><span class="line">white-space: nowrap;</span><br></pre></td></tr></table></figure><p>设置多行超出显示省略号</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">overflow: hidden;</span><br><span class="line">display: -webkit-box;</span><br><span class="line">-webkit-box-orient: vertical;</span><br><span class="line">-webkit-line-clamp: 2;</span><br></pre></td></tr></table></figure><h3 id="css中position的值"><a href="#css中position的值" class="headerlink" title="css中position的值"></a>css中position的值</h3><ul><li><code>static</code>: 默认值，无定位，<code>top</code>、<code>right</code>、<code>bottom</code>、<code>left</code> 不起任何作用</li><li><code>relative</code>: 相对定位</li><li><code>absolute</code>: 绝对定位，脱离文档流，上下左右以最近的定位父元素为参照系</li><li><code>fixed</code>: 脱离文档流，上下左右以浏览器视口为参照系</li><li><code>sticky</code>: <code>relative</code> 与 <code>fixed</code> 的结合体</li></ul><h3 id="rem、em、vw、vh"><a href="#rem、em、vw、vh" class="headerlink" title="rem、em、vw、vh"></a>rem、em、vw、vh</h3><p>他们同属于 CSS Data Type 中的 <code>[length]</code>，见文档 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length">length - MDN(opens new window)</a></p><ul><li><code>rem</code>: 根据根元素(即 <code>html</code>)的 <code>font-size</code></li><li><code>em</code>: 根据<strong>自身元素</strong>的 <code>font-size</code></li><li><code>vw</code>: viewport width</li><li><code>vh</code>: viewport height</li></ul><h3 id="normalize-css与reset-css的区别"><a href="#normalize-css与reset-css的区别" class="headerlink" title="normalize.css与reset.css的区别"></a>normalize.css与reset.css的区别</h3><ul><li><a href="https://github.com/necolas/normalize.css/blob/master/normalize.css">normalize.css (opens new window)</a>: 会保留有用的样式，比如 h1 的字体大小</li><li><a href="https://github.com/jgthms/minireset.css/blob/master/minireset.css">reset.css (opens new window)</a>: 把所有样式都重置，比如 h1、h2、h3 的字体大小都进行了重置，保持了无样式</li></ul><h3 id="Grid布局"><a href="#Grid布局" class="headerlink" title="Grid布局"></a>Grid布局</h3><p><a href="https://blog.csdn.net/yyy_wj/article/details/113175202">grid布局_yyy_wj的博客-CSDN博客_grid布局</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>css之variable</title>
+      <link href="/1970/01/01/css_variable/"/>
+      <url>/1970/01/01/css_variable/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;box1&quot;&gt;</span><br><span class="line">        这是box1</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div id=&quot;box2&quot;&gt;</span><br><span class="line">        这是box2</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line">   //找到html标签</span><br><span class="line">    let htmlNode=document.documentElement;</span><br><span class="line">    //将html标签(根标签)的CSS变量(--global-color)的值修改为red</span><br><span class="line">    htmlNode.style.setProperty(&quot;--global-color&quot;, &quot;red&quot;); </span><br><span class="line">    //读取html标签(根标签)的CSS变量(--global-color)的值,并在控制台中打印</span><br><span class="line">    console.log(getComputedStyle(htmlNode).getPropertyValue(&#x27;--global-color&#x27;))</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line"> :root&#123;</span><br><span class="line">            --global-color:blue;</span><br><span class="line">        &#125;</span><br><span class="line">        #box1&#123;</span><br><span class="line">            width:200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            border: 1px solid;</span><br><span class="line">            color:var(--global-color);</span><br><span class="line">        &#125;</span><br><span class="line">        #box2&#123;</span><br><span class="line">            width:200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            border: 1px solid;</span><br><span class="line">            background-color:var(--global-color);</span><br><span class="line">            color:white;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>css布局</title>
+      <link href="/1970/01/01/css%E5%B8%83%E5%B1%80/"/>
+      <url>/1970/01/01/css%E5%B8%83%E5%B1%80/</url>
+      
+        <content type="html"><![CDATA[<h5 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;left&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;main&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;wrapper&quot;&gt;</span><br><span class="line">      &lt;div class=&quot;one item&quot;&gt;One&lt;/div&gt;</span><br><span class="line">      &lt;div class=&quot;two item&quot;&gt;Two&lt;/div&gt;</span><br><span class="line">      &lt;div class=&quot;three item&quot;&gt;Three&lt;/div&gt;</span><br><span class="line">      &lt;div class=&quot;four item&quot;&gt;Four&lt;/div&gt;</span><br><span class="line">      &lt;div class=&quot;five item&quot;&gt;Five&lt;/div&gt;</span><br><span class="line">      &lt;div class=&quot;six item&quot;&gt;Six&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  </span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">    .container &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  height: 500px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.left &#123;</span><br><span class="line">  flex-basis: 300px;</span><br><span class="line">  background-color: aqua;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.main &#123;</span><br><span class="line">  flex-grow: 1;</span><br><span class="line">  background-color: aquamarine;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.wrapper&#123;</span><br><span class="line">            margin: 60px;</span><br><span class="line">            /* 声明一个容器 */</span><br><span class="line">            display: grid;</span><br><span class="line">            /* 声明列的宽度,数字3表示的重复3次，即有3列宽度为200px*/</span><br><span class="line">            grid-template-columns: repeat(3,200px);</span><br><span class="line">            /* 声明行间距和列间距 */</span><br><span class="line">            grid-gap: 20px;</span><br><span class="line">            /* 分别表示两行的高度 */</span><br><span class="line">            grid-template-rows: 100px 200px;</span><br><span class="line">        &#125;</span><br><span class="line">        .item&#123;</span><br><span class="line">            text-align: center;</span><br><span class="line">            font-size: 200%;</span><br><span class="line">            color: #fff;</span><br><span class="line">        &#125;</span><br><span class="line">        .one&#123;</span><br><span class="line">            background-color:#b8e8e0 ;</span><br><span class="line">        &#125;</span><br><span class="line">        .two&#123;</span><br><span class="line">            background-color: #8CC7B5;</span><br><span class="line">        &#125;</span><br><span class="line">        .three&#123;</span><br><span class="line">            background-color:#efe3bf ;</span><br><span class="line">        &#125;</span><br><span class="line">        .four&#123;</span><br><span class="line">            background-color: #BEE7E9;</span><br><span class="line">        &#125;</span><br><span class="line">        .five&#123;</span><br><span class="line">            background-color: #E6CEAC;</span><br><span class="line">        &#125;</span><br><span class="line">        .six&#123;</span><br><span class="line">            background-color: #ECAD9E;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure><h5 id="grid布局"><a href="#grid布局" class="headerlink" title="grid布局"></a>grid布局</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;left&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;main&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;grid&quot; style=&quot;height: 500px;&quot;&gt;</span><br><span class="line">      &lt;div class=&quot;item&quot; style=&quot;background-color: blue;&quot;&gt;&lt;/div&gt;</span><br><span class="line">      &lt;div class=&quot;item&quot; style=&quot;background-color: green;&quot;&gt;&lt;/div&gt;</span><br><span class="line">      &lt;div class=&quot;item&quot; style=&quot;background-color: red;&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">    .container &#123;</span><br><span class="line">  display: grid;</span><br><span class="line">  height: 500px;</span><br><span class="line">  grid-template-columns: 300px 1fr;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.left &#123;</span><br><span class="line">  background-color: aqua;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.main &#123;</span><br><span class="line">  background-color: aquamarine;</span><br><span class="line">&#125;</span><br><span class="line">.grid &#123;</span><br><span class="line">  display: grid;</span><br><span class="line">  grid-template-columns: 1fr 1fr 1fr;</span><br><span class="line">  gap: 1rem;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>html</title>
+      <link href="/1970/01/01/html/"/>
+      <url>/1970/01/01/html/</url>
+      
+        <content type="html"><![CDATA[<h3 id="textarea禁止拉伸"><a href="#textarea禁止拉伸" class="headerlink" title="textarea禁止拉伸"></a>textarea禁止拉伸</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">textarea &#123;</span><br><span class="line">  resize: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="在Canvas中如何处理跨域图片"><a href="#在Canvas中如何处理跨域图片" class="headerlink" title="在Canvas中如何处理跨域图片"></a>在Canvas中如何处理跨域图片</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">img.setAttribute(&quot;crossOrigin&quot;, &quot;anonymous&quot;);</span><br></pre></td></tr></table></figure><h3 id="行内元素"><a href="#行内元素" class="headerlink" title="行内元素"></a>行内元素</h3><ul><li>a</li><li>img</li><li>picture</li><li>span</li><li>input</li><li>textarea</li><li>select</li><li>label</li></ul><h3 id="语义化标签"><a href="#语义化标签" class="headerlink" title="语义化标签"></a>语义化标签</h3><ul><li>header</li><li>footer</li><li>main</li><li>aside</li><li>article</li><li>section</li><li>address</li><li>summary/details</li><li>menu</li><li>h1/h2/h3/h4/h5/h6</li><li>img</li><li>p</li><li>strong/italic</li></ul><h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><p><a href="https://javascript.ruanyifeng.com/bom/cookie.html">Cookie – JavaScript 标准参考教程（alpha）</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>css选择器</title>
+      <link href="/1970/01/01/css%E9%80%89%E6%8B%A9%E5%99%A8/"/>
+      <url>/1970/01/01/css%E9%80%89%E6%8B%A9%E5%99%A8/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div&gt;我是div&lt;/div&gt;</span><br><span class="line">    &lt;p&gt;我是p&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;我是p&lt;/p&gt;</span><br><span class="line">    &lt;div&gt;我是div&lt;/div&gt;</span><br><span class="line">    &lt;p&gt;我是p&lt;/p&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;p&gt;我是div下面的p&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;我是div下面的p&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;span&gt;我是span&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">    &lt;table border=&quot;1&quot;&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;th&gt;Month&lt;/th&gt;</span><br><span class="line">            &lt;th&gt;Savings&lt;/th&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td&gt;January&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;$100&lt;/td&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td&gt;January&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;$100&lt;/td&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td&gt;January&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;$100&lt;/td&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td&gt;January&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;$100&lt;/td&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td&gt;January&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;$100&lt;/td&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td&gt;January&lt;/td&gt;</span><br><span class="line">            &lt;td&gt;$100&lt;/td&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">    &lt;/table&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">    /* div+p &#123;</span><br><span class="line">        color: red;</span><br><span class="line">    &#125; */</span><br><span class="line"></span><br><span class="line">    /* 第一个p标签变红色了 */</span><br><span class="line"></span><br><span class="line">    div~p &#123;</span><br><span class="line">        color: red;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* div后面的p标签都变成红色了 */</span><br><span class="line"></span><br><span class="line">    tr:nth-child(2n)&#123;</span><br><span class="line">        background-color: red;</span><br><span class="line">    &#125;</span><br><span class="line">    tr:nth-child(2n+1)&#123;</span><br><span class="line">        background-color:blue;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>原型</title>
+      <link href="/1970/01/01/%E5%8E%9F%E5%9E%8B/"/>
+      <url>/1970/01/01/%E5%8E%9F%E5%9E%8B/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    </span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    //每个对象都有原型，都可以调用其原型上的所有属性和方法</span><br><span class="line">    //获取原型的方法：</span><br><span class="line">    // 1.__proto__</span><br><span class="line">   </span><br><span class="line">    let cat=&#123;</span><br><span class="line">        name:&quot;喵喵&quot;</span><br><span class="line">    &#125;</span><br><span class="line">    cat.__proto__.eat = function()&#123;</span><br><span class="line">        console.log(&quot;吃鱼&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">    cat.eat()</span><br><span class="line">    // 2.通过构造函数的prototype属性拿到原型</span><br><span class="line">    // function Cat(name,age)&#123;</span><br><span class="line">    //     this.name=name</span><br><span class="line">    //     this.age=age</span><br><span class="line">    // &#125;</span><br><span class="line">    // let cat = new Cat(&quot;喵喵&quot;,2)</span><br><span class="line">    // Cat.prototype.eat=function()&#123;</span><br><span class="line">    //     console.log(&quot;吃鱼&quot;)</span><br><span class="line">    // &#125;</span><br><span class="line"></span><br><span class="line">    // 原型的作用</span><br><span class="line">    let date = new Date()</span><br><span class="line">    console.log(date)</span><br><span class="line"></span><br><span class="line">    Date.prototype.formate = function()&#123;</span><br><span class="line">        let year = this.getFullYear()</span><br><span class="line">        let month = this.getMonth()+1</span><br><span class="line">        let date = this.getDate()</span><br><span class="line">        return `$&#123;year&#125;年$&#123;month&#125;月$&#123;date&#125;日`</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(date.formate())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    //ES6新增类</span><br><span class="line">    class Cat&#123;</span><br><span class="line">        constructor(name,age)&#123;</span><br><span class="line">            this.name=name</span><br><span class="line">            this.age =age</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    Cat.prototype.eat = function()&#123;</span><br><span class="line">        console.log(&quot;吃鱼&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">    let cat = new Cat(&quot;喵喵&quot;,2)</span><br><span class="line">    cat.eat()</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>图片懒加载</title>
+      <link href="/1970/01/01/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/"/>
+      <url>/1970/01/01/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/</url>
+      
+        <content type="html"><![CDATA[<p>参考<a href="https://www.jianshu.com/p/f9c1da9519a4?open_source=weibo_search">https://www.jianshu.com/p/f9c1da9519a4?open_source=weibo_search</a></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;main&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;pic&quot;&gt;</span><br><span class="line">        &lt;img class=&quot;img&quot; data-src=&quot;我们.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    let img = document.querySelectorAll(&#x27;.img&#x27;)</span><br><span class="line">    console.log(img)</span><br><span class="line">    const observer = new IntersectionObserver((changes) =&gt; &#123;</span><br><span class="line">        changes.forEach((change) =&gt; &#123;</span><br><span class="line">            // intersectionRatio</span><br><span class="line">            console.log(change)</span><br><span class="line">            if (change.isIntersecting) &#123;</span><br><span class="line">                const img = change.target;</span><br><span class="line">                img.src = img.dataset.src;</span><br><span class="line">                observer.unobserve(img);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">    img.forEach(item=&gt;&#123;</span><br><span class="line">        observer.observe(item)</span><br><span class="line">    &#125;)</span><br><span class="line">    observer.observe(img);</span><br><span class="line">    // let images = document.querySelectorAll(&quot;img.lazyload&quot;);</span><br><span class="line"></span><br><span class="line">    // let observer = new IntersectionObserver(entries =&gt; &#123;</span><br><span class="line">    //     entries.forEach(item =&gt; &#123;</span><br><span class="line">    //         if (item.isIntersecting) &#123;</span><br><span class="line">    //             item.target.src = item.target.dataset.origin; // 开始加载图片</span><br><span class="line">    //             observer.unobserve(item.target); // 停止监听已开始加载的图片</span><br><span class="line">    //         &#125;</span><br><span class="line">    //     &#125;);</span><br><span class="line">    // &#125;);</span><br><span class="line"></span><br><span class="line">    // images.forEach(item =&gt; observer.observe(item));</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">    .main &#123;</span><br><span class="line">        height: 2000px;</span><br><span class="line">        width: 200px;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .pic &#123;</span><br><span class="line">        height: 500px;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .img &#123;</span><br><span class="line">        height: 150px;</span><br><span class="line">        width: 150px;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>媒体查询</title>
+      <link href="/1970/01/01/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2/"/>
+      <url>/1970/01/01/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;!-- 通过mdeia指定媒体类型及条件来区别引入css文件 --&gt;</span><br><span class="line">    &lt;!-- &lt;link rel=&quot;stylesheet&quot; href=&quot;./css/index.css&quot; media=&quot;screen and (min-width:300px)&quot;&gt; --&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;!--  --&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    //js媒体查询</span><br><span class="line">    // 创建查询列表</span><br><span class="line">    const mediaQueryList = window.matchMedia(&quot;(orientation: portrait)&quot;);</span><br><span class="line"></span><br><span class="line">    // 定义回调函数</span><br><span class="line">    function handleOrientationChange(mql) &#123;</span><br><span class="line">        // ...</span><br><span class="line">        console.log(mql)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 先运行一次回调函数</span><br><span class="line">    handleOrientationChange(mediaQueryList);</span><br><span class="line"></span><br><span class="line">    // 为查询列表注册监听器，同时将回调函数传给监听器</span><br><span class="line">    mediaQueryList.addListener(handleOrientationChange);</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">    /*  */</span><br><span class="line">    @media(max-width:300px) &#123;</span><br><span class="line">        body &#123;</span><br><span class="line">            background-color: red;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @media(min-width:1000px) &#123;</span><br><span class="line">        body &#123;</span><br><span class="line">            background-color: blue;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>节流</title>
+      <link href="/1970/01/01/%E8%8A%82%E6%B5%81/"/>
+      <url>/1970/01/01/%E8%8A%82%E6%B5%81/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        body&#123;height:2000px;&#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;script src=&quot;throttle.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line"></span><br><span class="line">let flag= true</span><br><span class="line">window.onscroll=throttle(function()&#123;</span><br><span class="line">    console.log(&#x27;1&#x27;)</span><br><span class="line">&#125;,500)</span><br><span class="line">function throttle(fn,delay)&#123;</span><br><span class="line">    return function()&#123;</span><br><span class="line">        if(flag)&#123;</span><br><span class="line">            setTimeout(()=&gt;&#123;</span><br><span class="line">                fn.call(this)</span><br><span class="line">                flag=true</span><br><span class="line">            &#125;,delay)</span><br><span class="line">        &#125;</span><br><span class="line">        flag=false</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>防抖</title>
+      <link href="/1970/01/01/%E9%98%B2%E6%8A%96/"/>
+      <url>/1970/01/01/%E9%98%B2%E6%8A%96/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot;&gt;</span><br><span class="line">    &lt;!-- &lt;button id=&quot;debounce&quot;&gt;防抖&lt;/button&gt;</span><br><span class="line">    &lt;button id=&quot;throttle&quot;&gt;节流&lt;/button&gt; --&gt;</span><br><span class="line">    &lt;script src=&quot;debounce.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line"></span><br><span class="line">let inp = document.querySelector(&#x27;input&#x27;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">let t = null</span><br><span class="line">inp.oninput = debounce(function () &#123;</span><br><span class="line">    console.log(this.value)</span><br><span class="line">&#125;, 500)</span><br><span class="line"></span><br><span class="line">function debounce(fn, delay) &#123;</span><br><span class="line">    return function () &#123;</span><br><span class="line">        if (t !== null) &#123;</span><br><span class="line">            clearTimeout(t)</span><br><span class="line">        &#125;</span><br><span class="line">        t = setTimeout(() =&gt; &#123;</span><br><span class="line">            fn.call(this)</span><br><span class="line">        &#125;, delay)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// dbutton.addEventListener(&#x27;click&#x27;,debounce)</span><br><span class="line">// // 防抖函数</span><br><span class="line">// function debounce(fn, wait) &#123;</span><br><span class="line">//     let timer;</span><br><span class="line">//     return function () &#123;</span><br><span class="line">//       let _this = this;</span><br><span class="line">//       let args = arguments;</span><br><span class="line">//       if (timer) &#123;</span><br><span class="line">//         clearTimeout(timer);</span><br><span class="line">//       &#125;</span><br><span class="line">//       timer = setTimeout(function () &#123;</span><br><span class="line">//         fn.apply(_this, args);</span><br><span class="line">//       &#125;, wait);</span><br><span class="line">//     &#125;;</span><br><span class="line">//   &#125;</span><br><span class="line">//   // 使用</span><br><span class="line">//   window.onresize = debounce(function () &#123;</span><br><span class="line">//     console.log(&quot;resize&quot;);</span><br><span class="line">//   &#125;, 500);</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
